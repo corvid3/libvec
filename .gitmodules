@@ -1,0 +1,3 @@
+[submodule "libtest"]
+	path = libtest
+	url = git@github.com:corvid3/libtest.git
