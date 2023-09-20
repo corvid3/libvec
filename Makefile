@@ -1,3 +1,3 @@
 test: test.c libvec.h
-	clang -g -o $@ test.c 
+	clang --std=gnu11 -Wall -Werror -Wextra -pedantic -O2 -o $@ test.c 
 	./test

@@ -82,6 +82,10 @@ LIBV_EXPORT void libv_pop(struct libv* vector, void* into);
 LIBV_EXPORT void libv_append(struct libv* into, struct libv* from);
 LIBV_EXPORT void libv_append_list(struct libv* into, void* from, size_t len);
 
+LIBV_EXPORT void libv_insert_vec(struct libv* into,
+                                 struct libv* from,
+                                 size_t whence);
+
 // insert a value into a vector, preserving order,
 // at a specific index specified by whence
 LIBV_EXPORT void libv_insert(struct libv* vector, void* from, size_t whence);
@@ -113,7 +117,7 @@ LIBV_EXPORT void libv_remove_fast(struct libv* vector, size_t whence);
 
 #include <stdlib.h>
 
-const static struct libv_allocator_set libv_SG_default_allocator_set = {
+static const struct libv_allocator_set libv_SG_default_allocator_set = {
     .alloc = malloc,
     .realloc = realloc,
     .free = free,
